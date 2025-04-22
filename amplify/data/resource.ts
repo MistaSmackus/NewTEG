@@ -6,6 +6,9 @@ export const data = defineData({
       name: a.string(),
       symbol: a.string(),
       price: a.string(),
-    }),
+    }).authorization((allow) => [
+      allow.authenticated().to(["read"]),
+      allow.owner(), // optional but common
+    ]),
   }),
 });
