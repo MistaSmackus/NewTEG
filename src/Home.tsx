@@ -4,11 +4,23 @@ import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useEffect, useState } from "react";
 import type { Schema } from "../amplify/data/resource";
 import { generateClient } from "aws-amplify/data";
+import {
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  Tooltip,
+  ResponsiveContainer,
+  CartesianGrid,
+  Legend,
+} from 'recharts';
+
+
+
 
 const client = generateClient<Schema>();
 
@@ -26,14 +38,14 @@ export default function Home(): JSX.Element {
       client.models.Stock.observeQuery().subscribe({
         next: (data) => setStock([...data.items]),
       });
-
+      return () => sub.unsubscribe();
   }, []); 
 
   useEffect(() => {
       client.models.Market.observeQuery().subscribe({
         next: (data) => setMarket([...data.items]),
       });
-
+      return () => sub.unsubscribe();
   }, []);
 
   return (
@@ -66,9 +78,11 @@ export default function Home(): JSX.Element {
           <h2 className="h5 mb-3">Market Snapshot</h2>
           <ResponsiveContainer width="100%" height={200}>
             <LineChart data={market}>
+              <CartesianGrid strokeDasharry="3 3" />
               <XAxis dataKey="time" stroke="#888" />
               <YAxis domain={[4400, 4700]} stroke="#888" />
               <Tooltip />
+              <Legend />
               <Line type="monotone" dataKey="value" stroke="#007bff" strokeWidth={2} />
             </LineChart>
           </ResponsiveContainer>
