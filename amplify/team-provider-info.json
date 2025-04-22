@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-titanequitygroupapp-dev-23934-authRole",
+      "UnauthRoleArn": "arn:aws:iam::763345000100:role/amplify-titanequitygroupapp-dev-23934-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::763345000100:role/amplify-titanequitygroupapp-dev-23934-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-titanequitygroupapp-dev-23934-deployment",
+      "UnauthRoleName": "amplify-titanequitygroupapp-dev-23934-unauthRole",
+      "StackName": "amplify-titanequitygroupapp-dev-23934",
+      "StackId": "arn:aws:cloudformation:us-east-2:763345000100:stack/amplify-titanequitygroupapp-dev-23934/1f2df9d0-1faf-11f0-840c-0603fcc80c9b",
+      "AmplifyAppId": "dlbc59i1cku73"
+    },
+    "categories": {
+      "auth": {
+        "titanequitygroupappde034519": {}
+      },
+      "api": {
+        "titanequitygroupapp": {}
+      }
+    }
+  }
+}
